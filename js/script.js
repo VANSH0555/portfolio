@@ -206,4 +206,48 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // =========================================================================
+    // Show/Hide Certificates
+    // =========================================================================
+    const showAllBtn = document.getElementById('show-all-btn');
+    const certificateCards = document.querySelectorAll('.certificate-card');
+    const showAllContainer = document.getElementById('show-all-container');
+    let allCertificatesShown = false;
+
+    // Function to update button state
+    function updateShowAllButton() {
+        const visibleCertificates = Array.from(certificateCards).filter(card => !card.classList.contains('certificate-hidden'));
+        
+        if (visibleCertificates.length >= certificateCards.length) {
+            allCertificatesShown = true;
+            showAllBtn.textContent = 'Show Less Certificates';
+            showAllBtn.classList.add('hide-btn');
+        } else {
+            allCertificatesShown = false;
+            showAllBtn.textContent = 'Show All Certificates';
+            showAllBtn.classList.remove('hide-btn');
+        }
+    }
+
+    // Initial setup
+    updateShowAllButton();
+
+    // Show/Hide Certificates functionality
+    if (showAllBtn) {
+        showAllBtn.addEventListener('click', () => {
+            if (allCertificatesShown) {
+                // Hide extra certificates
+                Array.from(certificateCards).slice(3).forEach(card => {
+                    card.classList.add('certificate-hidden');
+                });
+            } else {
+                // Show all certificates
+                certificateCards.forEach(card => {
+                    card.classList.remove('certificate-hidden');
+                });
+            }
+            updateShowAllButton();
+        });
+    }
 });
