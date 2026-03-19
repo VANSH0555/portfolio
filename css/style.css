@@ -547,6 +547,93 @@ button {
 }
 
 /* =========================================================================
+   Certificates Section
+   ========================================================================= */
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.certificate-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: var(--transition-normal);
+    display: block;
+}
+
+.certificate-card.certificate-hidden {
+    display: none;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.certificate-img-placeholder {
+    width: 100%;
+    height: 150px;
+    background: #333;
+}
+
+.certificate-info {
+    padding: 1.5rem;
+}
+
+.certificate-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.certificate-issuer {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.certificate-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+}
+
+.certificate-link {
+    font-weight: 600;
+    color: var(--accent-secondary);
+    display: inline-block;
+    transition: var(--transition-fast);
+}
+
+.certificate-link:hover {
+    color: var(--text-main);
+    transform: translateX(5px);
+}
+
+.show-all-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.show-all-btn {
+    min-width: 180px;
+}
+
+.show-all-btn.hide-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-muted);
+}
+
+.show-all-btn.hide-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--text-main);
+}
+
+/* =========================================================================
    Contact Section
    ========================================================================= */
 .contact-wrapper {
